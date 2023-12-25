@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // МОДУЛЬ 2
-    // метод конвертирования времени прохождения пути вспышкой из минут в секунды
-    private double flashDurationSecond(int flashDurationMinute) {
+    // метод конвертирования времени прохождения пути вспышкой из минут в часы
+    private double flashDurationHour(int flashDurationMinute) {
         return (double) flashDurationMinute / 60;
     }
 
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
         int[] volume = new int[volumeData.length]; // создание пустого массива для времени обработки компьютером данных от спутника (в секундах)
         for (int i = 0; i < volume.length; i++) { // инициализация данного массива
-            int volumeDataByDuration = (int) (flashDurationSecond(flashDurationMinute[i]) * volumeData[i]); // определение объёма данных по времени вспышки
+            int volumeDataByDuration = (int) (flashDurationHour(flashDurationMinute[i]) * volumeData[i]); // определение объёма данных по времени вспышки
             volume[i] = volumeTime(frequency, volumeDataByDuration); // определение времени обработки компьютером данных от одного спутника
         }
 
